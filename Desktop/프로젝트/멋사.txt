@@ -1,0 +1,9 @@
+          <img src="{% static '인스타1.jpeg' %}" alt="" width="240">
+          <img src="{% static '인스타2.jpg' %}" alt="" width="200" >
+          <img src="{% static '인스타3.jpg' %}" alt="" width="200">
+
+<img src="{% static '인스타1.jpeg' %}" alt="" width="240">
+
+
+<button class="btn hover1">  <img src="{% static '인스타1.jpeg' %}" alt="" width="240">
+                </button>

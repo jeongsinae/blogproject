@@ -1,0 +1,7 @@
+python -m venv myvenv
+
+source myvenv/Scripts/activate
+
+pip install django
+
+python -m pip install --upgrade pip

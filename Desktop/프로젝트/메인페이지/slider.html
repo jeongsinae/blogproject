@@ -1,0 +1,172 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>멋진시내</title>
+    <style>
+      .slidershow-middle {
+        width: 1920px;
+        height: 400px;
+        overflow: hidden;
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .navigation {
+        width:200px;
+        height:50px;
+        position: relative;
+        bottom: -55%;
+        left: 50%;
+        transform: translatex(-50%);
+        display:flex;
+      }
+      .bar {
+        width: 100px;
+        height: 10px;
+        border: 2px solid gray;
+        margin: 6px;
+        cursor: pointer;
+        transition: 0.4s;
+      }
+      .bar:hover {
+        background: black;
+      }
+
+      .input[name="r"] {
+        position: absolute;
+        visibility: hidden;
+      }
+      .radio{visibility: hidden;}
+
+      
+
+      .slides {
+        width: 100%;
+        height: 100%;
+        display:flex;
+        justify-content: center;
+        float:left;
+      }
+
+      .slide {
+        float:left;
+        width: 25%;
+        transition: 0.6s;
+      }
+
+      .slide img {
+        float:left;
+        width: 25%;
+        height: 100%;
+        position: absolute;
+        float: left;
+      }
+              /* 다음, 이전 버튼 */
+              .prev, .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        margin-top: -22px;
+        padding: 16px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        }
+
+        /* "다음 버튼"을 오른쪽에 위치 */
+        .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+        }
+
+        /* 마우스를 올리면 배경색을 변경 */
+        .prev:hover, .next:hover {
+        background-color: rgba(0,0,0,0.8);
+        }
+
+      #r1:checked ~ .s1 {
+        margin-left: 0%;
+      }
+      #r2:checked ~ .s1 {
+        margin-left: -50%;
+      }
+
+      #r3:checked ~ .s1 {
+        margin-left: -100%;
+      }
+      #r4:checked ~ .s1 {
+        margin-left: -150%;
+      }
+    </style>
+  </head>
+  <body>
+    
+    <div class="slidershow-middle">
+      <div class="slides">
+        <input class="radio" type="radio" name="r" id="rl" checked />
+        <input class="radio" type="radio" name="r" id="r2" />
+        <input class="radio" type="radio" name="r" id="r3" />
+        <input class="radio" type="radio" name="r" id="r4" />
+
+        <div class="slide s1">
+          <img src="/img/1.png" class="image" alt="" />
+        </div>
+        
+        <div class="slide s2"><img src="/img/2.png" class="image" alt="" /></div>
+        <div class="slide s3"><img src="/img/3.png" class="image" alt="" /></div>
+        <div class="slide s4"><img src="/img/4.png" class="image" alt="" /></div>
+                    <!-- 다음, 이전 이미지 버튼 -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+    </div>
+    
+    <div class="navigation">
+      <label for="r1" class="bar"></label>
+      <label for="r2" class="bar"></label>
+      <label for="r3" class="bar"></label>
+      <label for="r4" class="bar"></label>
+    </div>
+
+  </body>
+  <script>
+      var slideIndex = 1;
+  showSlides(slideIndex);
+  
+  // 다음, 이전 제어
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+  
+  // 사진 제어
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+  
+  function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {slideIndex = 1} 
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none"; 
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block"; 
+    dots[slideIndex-1].className += " active";
+  }
+  
+  
+  
+  </script>
+</html>
